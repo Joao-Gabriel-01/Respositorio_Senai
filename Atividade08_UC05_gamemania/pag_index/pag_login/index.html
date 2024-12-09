@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Public/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="Public/Assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Public/Assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Public/Assets/favicon-16x16.png">
+    <link rel="manifest" href="Public/Assets/site.webmanifest">
+    <title>Game Mania - Login</title>
+</head>
+<body>
+    <div class="main-login">
+       <div class="left-login">
+        <h1>ACESSE SUA CONTA</h1>
+        <img src="Public/Assets/gaming.svg" class="left-login-image" alt="Game Mania">
+       </div>
+       <div class="right-login">
+        <div class="card-login">
+            <h2>LOGIN</h2>
+           <div class="textfield">
+            <label for="usuario">Usuário</label>
+            <input type="text" name="usuario" placeholder="Usuário">
+           </div>
+           <div class="textfield">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Senha">
+           </div>
+           <button class="btn-login" onclick="login()">Login</button>
+
+           <div class="register-link">
+            <p>Não tem uma conta? <a href="register.html">Cadastre-se</a></p>
+           </div>
+        </div>
+       </div>
+    </div>
+    <script src="Scripts/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Mania - Produtos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <h2>GAME MANIA</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index_gm.html">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index_produtos.html">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index_gm.html">Promoções</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index_gm.html">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" href="../pag_login/index.html" role="button">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <header class="hero bg-primary text-white text-center py-5">
+        <h1>PRODUTOS</h1>
+    </header>
+
+    
+    <div class="container my-5">
+        <div class="row">
+           
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/controle.png" class="card-img-top" alt="Produto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Controle Xbox</h5>
+                        <p class="card-text">Aproveite um controle de alta qualidade para suas maratonas de games.</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/headset.png" class="card-img-top" alt="Produto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Headset Gamer</h5>
+                        <p class="card-text">Experimente um áudio imersivo e alta qualidade de som para seus jogos.</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/teclado.png" class="card-img-top" alt="Produto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Teclado Mecânico</h5>
+                        <p class="card-text">Teclado mecânico com switches de alta performance para gamers.</p>
+                        <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Game Mania - Todos os direitos reservados.</p>
+    </footer>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/game-mania/js/javascript.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const currentUser = localStorage.getItem('currentUser');
+            const navBar = document.querySelector('.navbar-nav');
+
+            if (isLoggedIn && currentUser) {
+                
+                const loginButton = document.querySelector('.btn-outline-primary');
+                if (loginButton) loginButton.remove();
+
+                
+                const userProfile = document.createElement('li');
+                userProfile.classList.add('nav-item', 'dropdown');
+                userProfile.innerHTML = `
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Olá, ${currentUser}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                    </div>
+                `;
+                navBar.appendChild(userProfile);
+            } else {
+                
+                alert('Você precisa estar logado para acessar esta página.');
+                window.location.href = '../pag_login/index.html';
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('currentUser');
+            alert('Você foi desconectado.');
+            window.location.href = '../pag_login/index.html';
+        }
+    </script>
+</body>
+</html>
